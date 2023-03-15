@@ -59,8 +59,6 @@ export const login = async (req, res) => {
 
     // Створення токену доступу
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-
-    // Відправлення токену та даних користувача
     delete user.password;
     res.status(200).json({ token, user });
   } catch (err) {
